@@ -1,0 +1,18 @@
+﻿@model Cwiczenia3.Models.Dane
+@{
+}
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post)){
+    @Html.ValidationSummary(false, "", new {@class = "text-danger"})
+    <p>Imie: @Html.TextBoxFor(a=>a.Imie)</p>
+    <p>Nazwisko: @Html.TextBoxFor(a=>a.Nazwisko)</p>
+    <p>Email: @Html.TextBoxFor(a=>a.Email)</p>
+    <p>Hasło: @Html.PasswordFor(a=>a.Password)</p>
+    <p>Potwierdź Hasło: @Html.PasswordFor(a=>a.ConfirmPassword)</p>
+    <p>Numer Telefonu: @Html.TextBoxFor(a=>a.NumerTelefonu)</p>
+    <p>Wiek: @Html.TextBoxFor(a=>a.Wiek)</p>
+    <p>Miasto: <select asp-for="Miasto" asp-items="Html.GetEnumSelectList<Dane.Miasta>()">
+    </select></p>
+    <input type="submit"/>
+    <button type="button" onclick="location.href='@Url.Action("Clear", "Dane")'">Wyczyść</button>
+}
